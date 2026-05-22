@@ -10,11 +10,15 @@ https://reactjs.org/docs/lists-and-keys.html
 /*Extra!
 Feel free to create more components, such as header/footer,
 or why not include some more data from the array? */
+import data from "./data.json";
+import { Pokemon } from "./components/Pokemon";
 
 export const App = () => {
   return (
     <div className="App">
-      <p>Pokemon goes here</p>
+      {data.pokemons.map((pokemon) => (
+        <Pokemon key={pokemon.name} name={pokemon.name} types={pokemon.types} height={pokemon.height} weight={pokemon.weight} category={pokemon.category} />
+      ))}
     </div>
   );
 };
